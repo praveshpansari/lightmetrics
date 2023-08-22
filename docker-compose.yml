@@ -1,0 +1,29 @@
+version: "3"
+name: lightmetrics
+services:
+  db:
+    container_name: database
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=lightmetrics
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    restart: always
+    expose:
+      - 5432
+
+  api:
+    container_name: api
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+volumes:
+  postgres_data: {}
