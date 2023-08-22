@@ -7,7 +7,7 @@ const Comment = sequelize.define("comments", {
     autoIncrement: true,
     primaryKey: true,
   },
-  parent_id: {
+  parentId: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
@@ -23,7 +23,7 @@ const Comment = sequelize.define("comments", {
 
 Comment.hasMany(Comment, {
   as: "Replies",
-  foreignKey: "parent_id",
+  foreignKey: "parentId",
   onDelete: "CASCADE",
 });
 
