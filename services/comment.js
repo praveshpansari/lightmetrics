@@ -37,7 +37,7 @@ export default class CommentService {
   };
 
   deleteComment = async (id) => {
-    await Comment.delete({ where: { id: id } });
+    await Comment.destroy({ where: { id: id } });
     return;
   };
 }

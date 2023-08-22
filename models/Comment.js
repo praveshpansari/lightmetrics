@@ -21,6 +21,10 @@ const Comment = sequelize.define("comments", {
   },
 });
 
-Comment.belongsTo(Comment, { foreignKey: "parent_id", as: "Parent" });
+Comment.hasMany(Comment, {
+  as: "Reply",
+  foreignKey: "parent_id",
+  onDelete: "CASCADE",
+});
 
 export default Comment;

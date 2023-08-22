@@ -26,11 +26,11 @@ export default class CommentController {
       req.body,
       req.params.id
     );
-    return res.status(200).send({ comment });
+    return res.status(200).send({ msg: "Comment successfully updated!" });
   };
 
   deleteComment = async (req, res) => {
     await this.commentService.deleteComment(req.params.id);
-    return res.status(200).send();
+    return res.status(200).send({ msg: "Comment successfully deleted!" });
   };
 }
