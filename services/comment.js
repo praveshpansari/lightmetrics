@@ -16,7 +16,14 @@ export default class CommentService {
   };
 
   getComment = async (id) => {
-    const comment = await Comment.findByPk(id);
+    const comment = await Comment.findByPk(id, {
+      include: [
+        {
+          model: Comment,
+          as: "Replies", // This should match the alias you defined for the association
+        },
+      ],
+    });
     return comment;
   };
 

@@ -22,7 +22,7 @@ const Comment = sequelize.define("comments", {
 });
 
 Comment.hasMany(Comment, {
-  as: "Reply",
+  as: "Replies",
   foreignKey: "parent_id",
   onDelete: "CASCADE",
 });
