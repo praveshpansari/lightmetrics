@@ -5,7 +5,7 @@ export default class CommentService {
     const comment = await Comment.create({
       name: commentData.name,
       comment: commentData.comment,
-      parent_id: commentData.parent,
+      parentId: commentData.parent,
     });
     return comment;
   };
@@ -32,7 +32,7 @@ export default class CommentService {
       {
         name: commentData.name,
         comment: commentData.comment,
-        parent_id: commentData.parent,
+        parentId: commentData.parent,
       },
       {
         where: {
